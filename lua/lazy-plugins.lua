@@ -45,6 +45,7 @@ require('lazy').setup({
   require 'kickstart/plugins/treesitter',
   require 'kickstart/plugins/lazygit',
   require 'kickstart/plugins/harpoon',
+  require 'kickstart/plugins/mini-move',
   require 'kickstart/plugins/oil',
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
