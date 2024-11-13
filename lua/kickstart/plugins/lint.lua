@@ -1,4 +1,4 @@
-return {
+return 
 
   { -- Linting
     'mfussenegger/nvim-lint',
@@ -12,6 +12,15 @@ return {
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}
+      lint.linters_by_ft =  {
+          javascript = { "eslint" },
+          typescript = { "eslint" },
+          javascriptreact = { "eslint" },
+          typescriptreact = { "eslint" },
+          json = { "jsonlint" },
+          markdown = { "vale" },
+          
+        }
       -- lint.linters_by_ft['markdown'] = { 'markdownlint' }
       --
       -- However, note that this will enable a set of default linters,
@@ -44,12 +53,11 @@ return {
       -- Create autocommand which carries out the actual linting
       -- on the specified events.
       local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave','BufWrite' }, {
         group = lint_augroup,
         callback = function()
           lint.try_lint()
         end,
       })
     end,
-  },
-}
+  }
