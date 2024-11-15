@@ -44,5 +44,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+vim.keymap.set('n', '<C-s>', ':update<CR>', { desc = 'Save' })
+vim.keymap.set('i', '<C-s>', '<ESC>:update<CR>', { desc = 'Save and Exit Inster Mode' })
+
 
 -- vim: ts=2 sts=2 sw=2 et
